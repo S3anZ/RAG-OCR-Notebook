@@ -25,8 +25,6 @@
     <b>A state-of-the-art Retrieval-Augmented Generation (RAG) platform with multi-modal OCR, custom vector caching, and configurable local/cloud LLM synthesis.</b>
   </p>
 
-  <sub>Built with ❤️ using Fraunces & Public Sans typography • Optimized for NVIDIA RTX 4060 CUDA Acceleration</sub>
-
 </div>
 
 ---
