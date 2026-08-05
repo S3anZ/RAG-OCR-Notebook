@@ -119,8 +119,8 @@ flowchart TD
     end
 
     subgraph VectorDB ["Vector Database Layer"]
-        SupaDB[("Cloud Supabase pgvector")]
-        LocalDB[("Local Vector Store Cache")]
+        SupaDB["Cloud Supabase pgvector"]
+        LocalDB["Local Vector Store Cache"]
     end
 
     subgraph LLMEngine ["LLM Synthesis Layer"]
@@ -128,19 +128,22 @@ flowchart TD
         OllamaLocal["Local Ollama (llama3.1)"]
     end
 
-    UI -->|Upload Document| API
+    UI -->|"Upload Document"| API
     API --> PDF
-    PDF -->|Render Image Pages| OCR
-    OCR -->|Extracted Text| Chain
+    PDF -->|"Render Image Pages"| OCR
+    OCR -->|"Extracted Text"| Chain
     
-    Chain -->|Embed (nomic-embed-text)| SupaDB
-    Chain -->|Embed (nomic-embed-text)| LocalDB
+    Chain -->|"Embed Vector"| SupaDB
+    Chain -->|"Embed Vector"| LocalDB
 
-    Toggle -->|Query Request| API
+    Toggle -->|"Query Request"| API
     API --> Chain
-    Chain -->|DB Provider Choice| SupaDB & LocalDB
-    Chain -->|LLM Provider Choice| GroqCloud & OllamaLocal
-    GroqCloud & OllamaLocal -->|Synthesized Answer + Citations| UI
+    Chain -->|"DB Provider Choice"| SupaDB
+    Chain -->|"DB Provider Choice"| LocalDB
+    Chain -->|"LLM Provider Choice"| GroqCloud
+    Chain -->|"LLM Provider Choice"| OllamaLocal
+    GroqCloud -->|"Synthesized Answer"| UI
+    OllamaLocal -->|"Synthesized Answer"| UI
 ```
 
 ---
