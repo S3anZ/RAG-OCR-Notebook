@@ -1,0 +1,106 @@
+:root {
+  --bg: #FAF5EC;
+  --surface: #FFFFFF;
+  --text: #2B2118;
+  --text2: #8A7A68;
+  --border: #E8DFD0;
+  --accent: #C1592B;
+  --accentbg: #F5DFCB;
+  --shadow: rgba(43, 33, 24, 0.05);
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-sans: 'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+[data-theme="dark"] {
+  --bg: #221A14;
+  --surface: #2E241C;
+  --text: #F0E6D8;
+  --text2: #B0A08C;
+  --border: #42362A;
+  --accent: #E88A4C;
+  --accentbg: #4A3221;
+  --shadow: rgba(0, 0, 0, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-serif);
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.sans {
+  font-family: var(--font-sans);
+}
+
+/* Custom Editorial Parchment Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Firefox scrollbar support */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+/* Interactive Footnote Citations */
+.cite {
+  font-family: var(--font-sans);
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.85em;
+  margin: 0 2px;
+  cursor: pointer;
+  padding: 1px 4px;
+  border-radius: 4px;
+  transition: background-color 0.15s ease;
+}
+
+.cite:hover {
+  background-color: var(--accentbg);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-fade {
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.pulse {
+  animation: pulseGlow 1.5s infinite ease-in-out;
+}

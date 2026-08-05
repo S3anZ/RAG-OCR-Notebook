@@ -1,0 +1,27 @@
+# Core Backend & API
+flask
+flask-cors
+werkzeug
+python-dotenv
+
+# AI Models & LangChain Orchestration
+ollama
+supabase
+langchain
+langchain-community
+langchain-ollama
+langchain-groq
+langchain-text-splitters
+transformers
+
+# PyTorch & Computer Vision (CUDA Accelerated)
+torch
+torchvision
+torchaudio
+pillow
+numpy
+
+# OCR & PDF Parsing Engine
+pypdfium2
+paddleocr
+paddlepaddle-gpu

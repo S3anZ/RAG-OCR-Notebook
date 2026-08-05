@@ -1,0 +1,14 @@
+Artificial Intelligence and Retrieval-Augmented Generation (RAG)
+------------------------------------------------------------------
+Retrieval-Augmented Generation (RAG) is a technique for enhancing Large Language Model (LLM) responses with external knowledge.
+Instead of relying solely on parametric memory learned during training, a RAG system fetches relevant documents from a vector store based on semantic search embeddings.
+
+Key components of a RAG pipeline:
+1. Document Ingestion: Converting source documents (PDFs, images, Markdown, text files) into discrete content chunks.
+2. Embedding Generation: Transforming text chunks into high-dimensional vector representations using models such as nomic-embed-text or OpenAI text-embedding-3.
+3. Vector Database Storage: Storing text chunks alongside their vector embeddings in a database such as Supabase pgvector, Pinecone, or Qdrant.
+4. Similarity Retrieval: Given a user query, computing vector distance (cosine similarity or inner product) to retrieve top matching chunks.
+5. Prompt Augmentation and Synthesis: Constructing a structured prompt with the retrieved context and forwarding it to an LLM like Llama 3.1 or Claude for final response generation.
+
+Optical Character Recognition (OCR):
+Modern OCR tools like baidu/Unlimited-OCR can process document images and render structured Markdown output preserving formulas, tables, and typography.

@@ -1,0 +1,42 @@
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Public+Sans:wght@400;500&display=swap" rel="stylesheet">
+<h2 style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">Mockup of a warm, editorial-style document Q&A app with a library sidebar, footnote-style source citations, and a light/dark theme toggle</h2>
+<style>
+#app-mockup{--bg:#FAF5EC;--surface:#FFFFFF;--text:#2B2118;--text2:#8A7A68;--border:#E8DFD0;--accent:#C1592B;--accentbg:#F5DFCB;font-family:'Fraunces',Georgia,serif;background:var(--bg);border-radius:12px;padding:18px;color:var(--text);transition:background .2s,color .2s}
+#app-mockup.dark{--bg:#221A14;--surface:#2E241C;--text:#F0E6D8;--text2:#B0A08C;--border:#42362A;--accent:#E88A4C;--accentbg:#4A3221}
+#app-mockup .sans{font-family:'Public Sans',Helvetica,Arial,sans-serif}
+#app-mockup .card{background:var(--surface);border:0.5px solid var(--border);border-radius:8px}
+#app-mockup .pill{border-radius:20px;font-size:11px;padding:2px 8px}
+#app-mockup .cite{color:var(--accent);cursor:pointer;font-weight:500}
+</style>
+<div id="app-mockup">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+    <span class="sans" style="font-size:12px;color:var(--text2);letter-spacing:.03em">notebook</span>
+    <button class="sans" onclick="document.getElementById('app-mockup').classList.toggle('dark')" style="font-size:12px;border:0.5px solid var(--border);background:transparent;color:var(--text2);border-radius:20px;padding:4px 10px;cursor:pointer"><i class="ti ti-moon" style="font-size:13px;vertical-align:-2px;margin-right:4px" aria-hidden="true"></i>toggle theme</button>
+  </div>
+  <div style="display:grid;grid-template-columns:180px 1fr;gap:16px">
+    <div>
+      <p class="sans" style="font-size:11px;color:var(--text2);text-transform:uppercase;letter-spacing:.05em;margin:0 0 8px">library</p>
+      <div class="card" style="padding:10px 12px;margin-bottom:8px">
+        <p class="sans" style="font-size:13px;margin:0 0 4px;font-weight:500">temple_records.pdf</p>
+        <span class="pill sans" style="background:var(--accentbg);color:var(--accent)">● parsing</span>
+      </div>
+      <div class="card" style="padding:10px 12px;margin-bottom:8px">
+        <p class="sans" style="font-size:13px;margin:0 0 4px;font-weight:500">novel_outline.md</p>
+        <span class="pill sans" style="background:var(--border);color:var(--text2)">ready</span>
+      </div>
+      <div class="card" style="padding:10px 12px">
+        <p class="sans" style="font-size:13px;margin:0 0 4px;font-weight:500">resume_notes.txt</p>
+        <span class="pill sans" style="background:var(--border);color:var(--text2)">ready</span>
+      </div>
+    </div>
+    <div>
+      <p class="sans" style="font-size:12px;color:var(--text2);margin:0 0 4px">you asked</p>
+      <p style="font-size:14px;margin:0 0 16px;color:var(--text2)">When was the temple renovation completed?</p>
+      <p style="font-size:16px;line-height:1.7;margin:0 0 12px">The renovation wrapped in early 2024, according to the committee notes<span class="cite">¹</span>, with final funding confirmed the previous autumn<span class="cite">²</span>.</p>
+      <div style="border-top:0.5px solid var(--border);padding-top:10px;margin-top:16px">
+        <p class="sans" style="font-size:12px;color:var(--text2);margin:0 0 4px"><span class="cite">¹</span> temple_records.pdf — p.12</p>
+        <p class="sans" style="font-size:12px;color:var(--text2);margin:0"><span class="cite">²</span> temple_records.pdf — p.4</p>
+      </div>
+    </div>
+  </div>
+</div>
