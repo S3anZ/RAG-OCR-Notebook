@@ -438,14 +438,6 @@ with check (true);
 - [ ] Multi-document cross-comparison mode.
 - [ ] Export synthesized research summaries to Markdown & PDF.
 
----
-
-## 📄 License
-
-Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for more information.
-
----
-
 ## 🙏 Acknowledgements
 
 - [LangChain](https://www.langchain.com/) - LLM Orchestration Framework
