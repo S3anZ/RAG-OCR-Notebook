@@ -305,6 +305,61 @@ USE_GROQ=true
 
 ---
 
+## 🗄️ Supabase Vector Database Setup
+
+Run the following SQL snippet inside your [Supabase SQL Editor](https://supabase.com/dashboard) to create the vector table, similarity search RPC function, and RLS access policy:
+
+```sql
+-- 1. Enable pgvector extension
+create extension if not exists vector;
+
+-- 2. Create documents table for 768-dim embeddings
+create table if not exists documents (
+  id bigserial primary key,
+  content text,
+  metadata jsonb,
+  embedding vector(768)
+);
+
+-- 3. Create cosine similarity match RPC function
+create or replace function match_documents (
+  query_embedding vector(768),
+  match_count int DEFAULT 5,
+  filter jsonb DEFAULT '{}'
+) returns table (
+  id bigint,
+  content text,
+  metadata jsonb,
+  similarity float
+)
+language plpgsql
+as $$
+begin
+  return query
+  select
+    documents.id,
+    documents.content,
+    documents.metadata,
+    1 - (documents.embedding <=> query_embedding) as similarity
+  from documents
+  where documents.metadata @> filter
+  order by documents.embedding <=> query_embedding
+  limit match_count;
+end;
+$$;
+
+-- 4. Enable RLS and add public access policy
+alter table documents enable row level security;
+
+create policy "Allow anon insert, select, and delete" 
+on documents 
+for all 
+using (true) 
+with check (true);
+```
+
+---
+
 ## 📡 API Reference
 
 ### `GET /health`
